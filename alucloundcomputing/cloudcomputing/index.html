@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"></meta>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes"></meta>
+    <title>Cloud Computing</title>
+
+    <link rel="stylesheet" href="./lib/jquery.mobile-1.3.2.min.css"></link>
+    <link rel="stylesheet" href="./lib/style.css"></link>
+
+    <!-- Include scripts -->
+    <script src="./lib/jquery-1.10.2.min.js"></script>
+    <script src="./lib/jquery.mobile-1.3.2.min.js"></script>
+    <script src="./js/jquery.textfill.js"></script>
+    <script src="./js/jquery.textfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.4.3/localforage.min.js"></script>
+    
+    <!-- LINK TO FIREBASE GOES HERE -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script type="text/javascript">
+        // Initialize Firebase
+        var config = {
+            apiKey: "",
+            authDomain: "",
+            databaseURL: "",
+            storageBucket: ""
+        };
+        firebase.initializeApp(config); 
+        var dataRef = firebase.database(); 
+
+    </script>
+</head>
+
+<body>
+
+    <!-- Home -->
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h1 id="titler">Cloud Computing</h1>
+            <a href="#add_new" data-role="button" data-icon="plus" class="ui-btn-right ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="b"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Add New</span><span class="ui-icon ui-icon-plus ui-icon-shadow">&nbsp;</span></span></a>
+        </div>
+        <div id="service_body" data-role="content">
+            <h4 style="text-align:center;">Types of Fruits</h4>
+            <ul id="fruit_list" data-role="listview" data-inset="true" data-divider-theme="a" data-filter="true" data-filter-placeholder="Search Fruits here..."></ul>
+        </div>
+        <div id="clear_program" role="contentinfo" data-role="footer" data-theme="b" class="ui-bar ui-footer ui-bar-b ui-footer-fixed slideup" data-position="fixed">
+            <div class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal center" data-role="controlgroup" data-type="horizontal" style="float: left;">
+                <div class="ui-controlgroup-controls">
+                    <a href="#delete_list" data-role="button" data-icon="minus">Delete Fruits</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Home -->
+
+    <!-- Add a new song-->
+    <div data-role="page" id="add_new">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#home" data-role="button" data-icon="home" data-iconpos="left">Home</a>
+            <h1 id="titler">Cloud Computing</h1>
+        </div>
+        <h3 style="text-align:center; margin-bottom:-10px;">Add a New Fruit</h3>
+
+        <div id="song_form " data-role="content">
+            <form id="saveFruit" role="form" class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" id="fruit_name" placeholder="Name of Fruit" autofocus required/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" data-role="button">Save Fruit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add a new song -->
+
+    <!-- Delete the list -->
+    <div data-role="dialog" id="delete_list" data-title="Are you sure?">
+        <div data-role="content">
+            <h3 style="text-align:center;">Delete the list?</h3>
+            <p style="text-align:center;">Are you sure you want to delete the list?</p>
+            <a id="delete_all_fruits" data-role="button" data-theme="b" data-rel="back">Yes</a>
+            <a data-role="button" data-theme="c" data-rel="back">No</a>
+        </div>
+    </div>
+    <!-- Delete the list -->
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>
